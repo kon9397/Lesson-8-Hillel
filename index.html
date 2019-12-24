@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 8</title>
+</head>
+<body>
+    
+    <script>
+        // Массив с числами
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+
+        // Функция для вывода нечетных чисел
+        let odd = function(array) {
+            let oddArray = array.filter(function(odd) {
+                if(odd % 2 === 1) {
+                    return odd;
+                }
+            })
+            return oddArray;
+        };
+
+        console.log(odd(array)); // Вызов функции для вывода нечетных чисел
+
+        // Функция для вывода четных чисел
+        let even = function(array) {
+            let evenArray = array.filter(function(even) {
+                if(even % 2 === 0) {
+                    return even;
+                }
+            })
+            return evenArray;
+        };
+
+        console.log(even(array)); // Вызов функции для вывода четных чисел
+
+
+        // Функция проверки на палиндром
+        let isPalindrome = function(number) {
+            let reversedNumber = String(number).split("").reverse().join("");
+            if(typeof number === 'number') {
+                return number == reversedNumber ? true : false;
+            } else {
+                return 'Не число';
+            }
+        };
+
+        console.log(isPalindrome(31013)); // Вызов функции
+
+        // Многомерный массив, который даже невозможно представить
+        let multiArray = [[1, 3, [3, 5, 8]], 3, 1, [44, [14], [19]], [[13, 14], [16, 19, 21]]];
+
+        // Функция который создает нормальный массив
+        let flat = function(array) {
+            let newArray = array.reduce(function(accum, item) {
+                return accum.concat(Array.isArray(item) ? flat(item) : item);
+            }, []);
+            return newArray;
+        }
+
+        console.log(flat(multiArray)); // Вызов функции
+    </script>
+</body>
+</html>
