@@ -53,10 +53,9 @@
 
         // Функция который создает нормальный массив
         let flat = function(array) {
-            let newArray = array.reduce(function(accum, item) {
-                return accum.concat(Array.isArray(item) ? flat(item) : item);
-            }, []);
-            return newArray;
+            let arr = array.toString().split(",").map(Number);
+
+            return arr;
         }
 
         console.log(flat(multiArray)); // Вызов функции
